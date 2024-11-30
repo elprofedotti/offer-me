@@ -17,7 +17,7 @@ import { MessageWsModule } from './message-ws/message-ws.module';
 @Module({
   imports: [ 
     ConfigModule.forRoot(),
-    /* TypeOrmModule.forRoot({
+    TypeOrmModule.forRoot({
       ssl: process.env.STAGE === 'prod', // ? true: false,
       extra: {
         ssl:process.env.STAGE === 'prod'
@@ -32,8 +32,8 @@ import { MessageWsModule } from './message-ws/message-ws.module';
       password: process.env.DB_PASSWORD,      
       autoLoadEntities: true,
       synchronize: true,
-    }), */
-    TypeOrmModule.forRoot({
+    }),
+    /* TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DB_HOST,
       port: +process.env.DB_PORT,
@@ -42,7 +42,7 @@ import { MessageWsModule } from './message-ws/message-ws.module';
       password: process.env.DB_PASSWORD,      
       autoLoadEntities: true,
       synchronize: true,
-    }),
+    }), */
 
     ServeStaticModule.forRoot({
       rootPath: join(__dirname,'..','public'), 
