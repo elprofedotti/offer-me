@@ -27,5 +27,16 @@ export class OffersService {
     return this.offersRepository.find({ where: { product: { id: productId.toString() } } });
   }
 
+  async getOffersByUser(userId: string): Promise<Offer[]> {
+    return this.offersRepository.find({ where: { user: { id: userId } } });
+  }
+
+  async getReceivedOffersByUser(userId: string): Promise<Offer[]> {
+    return this.offersRepository.find({
+      where: { product: { user: { id: userId } } }, // Relación producto -> usuario
+      relations: ['product'],
+    });
+  }
+
   // Otros métodos necesarios
 }
