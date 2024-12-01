@@ -10,7 +10,7 @@ import { Auth } from 'src/auth/decorators';
 export class OffersController {
   constructor(private readonly offersService: OffersService) {}
 
-  @Auth()
+  
   @Post()
   async createOffer(
     @Body() createOfferDto: CreateOfferDto): Promise<Offer> {
