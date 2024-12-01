@@ -1,5 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { Product } from "src/products/entities";
+import { Offer } from "src/offers/offer.entity";
 import { BeforeInsert, BeforeUpdate, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('users')
@@ -44,6 +45,9 @@ export class User {
         ( product ) => product.user
     )
     product: Product;
+    
+    @OneToMany(() => Offer, (offer) => offer.user)
+    offers: Offer[];
 
 
     @BeforeInsert()

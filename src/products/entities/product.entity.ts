@@ -2,6 +2,7 @@ import { BeforeInsert, BeforeUpdate, Column, Entity, ManyToOne, OneToMany, Prima
 import { ProductImage } from "./product-image.entity";
 import { User } from "src/auth/entities/user.entity";
 import { ApiProperty } from "@nestjs/swagger";
+import { Offer } from "src/offers/offer.entity";
 
 @Entity({name: 'products'})
 export class Product {
@@ -106,6 +107,10 @@ export class Product {
         { eager: true }
     )
     user: User
+    
+
+    @OneToMany(() => Offer, (offer) => offer.product, { cascade: true })
+    offers: Offer[];
 
     @BeforeInsert()
     checkSlugInsert() {
