@@ -38,7 +38,7 @@ export class AuthController {
   }
 
 
-  @Get('private')
+ /*  @Get('private')
   @UseGuards( AuthGuard() )
   testingPrivateRoute(
     @Req() request: Express.Request,
@@ -58,12 +58,12 @@ export class AuthController {
       rawHeaders,
       headers
     }
-  }
+  } */
 
 
   // @SetMetadata('roles', ['admin','super-user'])
 
-  @Get('private2')
+/*   @Get('private2')
   @RoleProtected( ValidRoles.superUser, ValidRoles.admin )
   @UseGuards( AuthGuard(), UserRoleGuard )
   privateRoute2(
@@ -87,7 +87,7 @@ export class AuthController {
       ok: true,
       user
     }
-  }
+  } */
 
 
 

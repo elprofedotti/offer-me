@@ -89,6 +89,8 @@ export class Product {
     })
     tags: string[];
 
+    
+
     @ApiProperty()
     // images
     @OneToMany(

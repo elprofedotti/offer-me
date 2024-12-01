@@ -1,4 +1,6 @@
-import { IsEmail, IsString, Matches, MaxLength, MinLength } from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
+import { IsArray, IsEmail, IsIn, IsString, Matches, MaxLength, MinLength } from 'class-validator';
+import { Column } from 'typeorm';
 
 
 export class CreateUserDto {
@@ -20,4 +22,11 @@ export class CreateUserDto {
     @MinLength(1)
     fullName: string;
 
-}
+    
+    
+ /*    @IsArray()
+    @IsIn(['buyer', 'seller', 'admin','super'], { each: true })
+    roles: string[]; */
+    
+};
+

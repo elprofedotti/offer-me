@@ -1,3 +1,4 @@
+import { ApiProperty } from "@nestjs/swagger";
 import { Product } from "src/products/entities";
 import { BeforeInsert, BeforeUpdate, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
@@ -27,10 +28,15 @@ export class User {
     })
     isActive: boolean;
 
-    @Column('text', {
-        array: true,
-        default: ['user']
+    @ApiProperty({
+        example: ['buyer','seller','admin','super'],
+        description: 'User roles',
+        
     })
+    @Column('text',{
+        array: true,
+        default: ['buyer']
+    })      
     roles: string[];
 
     @OneToMany(
